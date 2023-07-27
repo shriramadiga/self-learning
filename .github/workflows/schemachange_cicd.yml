@@ -6,11 +6,8 @@ on:
       - main
 
 jobs:
-    github-environment:
-      outputs:
-        env-name: ${{ steps.set_env.outputs.environment }}
-        runs-on: ubuntu-latest
-
+    deploy-snowflake-change-job:
+      runs-on: ubuntu-latest
 
       steps:
         - name: checkout repository
@@ -20,13 +17,6 @@ jobs:
           uses: actions/setup-python@v2.2.1
           with:
               python-version: 3.8.x
-
-
-        - name: 'Install Dependencies'
-          shell: bash
-          run: |
-              python -m pip install --upgrade pip   
-              pip install -r requirements.txt
 
         - name: 'run schema change'
           env:
@@ -40,5 +30,8 @@ jobs:
           run: |
             echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
             python --version
-            echo "Running schemachange"
+            echo "step 1 : installing schema change"
+            pip install schemachange
+            
+            echo "step2 : Running schemachange"
             schemachange -f $GITHUB_WORKSPACE/snowflake_config -a $SF_ACCOUNT -u $SF_USER -p $SF_PASSWORD -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DB --create-change-history-table
