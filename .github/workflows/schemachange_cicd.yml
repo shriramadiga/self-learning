@@ -34,5 +34,5 @@ jobs:
             pip install -r requirements.txt
             
             echo "step2 : Running schemachange"
-            echo "SF_PASSWOR : $SF_PASSWORD"
-            schemachange -f $GITHUB_WORKSPACE/snowflake_config -a $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USERNAME -r $SNOWFLAKE_ROLE -w $SSNOWFLAKE_WAREHOUSE -d $SNOWFLAKE_DATABASE -c $SF_DB.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
+            echo "SF_PASSWORD : $SNOWFLAKE_PASSWORD"
+            schemachange -f $GITHUB_WORKSPACE/snowflake_config -a $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USERNAME -r $SNOWFLAKE_ROLE -w $SNOWFLAKE_WAREHOUSE -d $SNOWFLAKE_DATABASE -c $SNOWFLAKE_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
