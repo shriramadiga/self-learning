@@ -1,0 +1,37 @@
+name: "schemachange cicd"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-snowflake-change:
+    runs_on: ubuntu-latest
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v3
+      - name: 'Install Dependencies'
+        shell: bash
+        run: |
+            python -m pip install --upgrade pip   
+            pip install -r requirements.txt
+
+      - name: 'run schema change'
+        env:
+          SF_ACCOUNT: ${{secrets.SF_ACCOUNT}}
+          SF_USER: ${{secrets.SF_USER}}
+          SF_PASSWORD: ${{secrets.SF_PASSWORD}}
+          SF_WAREHOUSE: ${{secrets.SF_WAREHOUSE}}
+          SF_ROLE: ${{secrets.SF_ROLE}}
+          SF_DB: ${{secrets.SF_DB}}
+
+        run: |
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          python --version
+          echo "Running schemachange"
+          schemachange -f $GITHUB_WORKSPACE/snowflake_config -a $SF_ACCOUNT -u $SF_USER -p $SF_PASSWORD -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DB --create-change-history-table
+          
+
+

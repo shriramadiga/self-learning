@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyi
+*.pyz
+*.pywz
+*.dist-info/
+*.egg-info/
+dist/
+build/
+*.egg
+*.bak
+
+.idea
