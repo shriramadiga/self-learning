@@ -1,0 +1,2 @@
+PUT file://learnings/snowflake_connector.py @DEMO_DB.DEMO.FIRST_STAGE/CODE AUTO_COMPRESS=FALSE OVERWRITE=TRUE
+
