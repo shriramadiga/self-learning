@@ -31,8 +31,8 @@ jobs:
             echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
             python --version
             echo "step 1 : installing schema change"
-            pip install schemachange
+            pip install -r requirements.txt
             
             echo "step2 : Running schemachange"
             echo "SF_PASSWOR : $SF_PASSWORD"
-            schemachange -f $GITHUB_WORKSPACE/snowflake_config -a $SF_ACCOUNT -u $SF_USER -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DB --create-change-history-table
+            schemachange -f $GITHUB_WORKSPACE/snowflake_config -a $SF_ACCOUNT -u $SF_USER -r $SF_ROLE -w $SF_WAREHOUSE -d $SF_DB -c $SF_DB.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
