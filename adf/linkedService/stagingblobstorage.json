@@ -1,0 +1,11 @@
+{
+	"name": "stagingblobstorage",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"sasUri": "https://firsttstorageaccount.blob.core.windows.net/firstcontainer?sp=r&st=2023-08-01T05:43:43Z&se=2023-08-01T13:43:43Z&spr=https&sv=2022-11-02&sr=c&sig=UwM6pQDRCt2Xa7YZG%2FfJ78Nc9oEfeJ2pXWG9hFii57U%3D?sp=r&st=2023-08-01T05:43:43Z&se=2023-08-01T13:43:43Z&spr=https&sv=2022-11-02&sr=c&sig=UwM6pQDRCt2Xa7YZG%2FfJ78Nc9oEfeJ2pXWG9hFii57U%3D"
+		}
+	}
+}

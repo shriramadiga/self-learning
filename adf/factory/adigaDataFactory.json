@@ -1,0 +1,9 @@
+{
+	"name": "adigaDataFactory",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0b75ad97-b6f2-468f-8081-9057e0072a1b",
+		"tenantId": "75c6953c-826d-43e5-adb9-58a676661b5b"
+	}
+}
