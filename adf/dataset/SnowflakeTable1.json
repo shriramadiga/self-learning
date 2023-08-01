@@ -1,0 +1,53 @@
+{
+	"name": "SnowflakeTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "firstSnowflakeLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeTable",
+		"schema": [
+			{
+				"name": "SGN_SL_NO",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "ID_IDENTIFIER",
+				"type": "VARCHAR",
+				"precision": 208,
+				"scale": 0
+			},
+			{
+				"name": "AB_UNIT",
+				"type": "VARCHAR",
+				"precision": 200,
+				"scale": 0
+			},
+			{
+				"name": "CODE_VERIFIER",
+				"type": "VARCHAR",
+				"precision": 208,
+				"scale": 0
+			},
+			{
+				"name": "PAYMENT_METHOD",
+				"type": "VARCHAR",
+				"precision": 208,
+				"scale": 0
+			},
+			{
+				"name": "DATA_LOAD_DATE",
+				"type": "DATE",
+				"precision": 10,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "RAW",
+			"table": "ACTUAL_DATA"
+		}
+	}
+}
