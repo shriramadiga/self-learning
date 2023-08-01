@@ -28,7 +28,7 @@
 					},
 					"sink": {
 						"type": "SnowflakeSink",
-						"preCopyScript": "truncate raw.actual_data;\ntruncate posted.actual_data_reject;",
+						"preCopyScript": "truncate raw.actual_data;",
 						"importSettings": {
 							"type": "SnowflakeImportCopyCommand"
 						}
@@ -50,7 +50,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "SnowflakeTable1",
+						"referenceName": "snowflakeds",
 						"type": "DatasetReference"
 					}
 				]
