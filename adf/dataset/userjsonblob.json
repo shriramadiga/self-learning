@@ -1,0 +1,42 @@
+{
+	"name": "userjsonblob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "myblobstorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "json_data.json",
+				"folderPath": "blob",
+				"container": "firstcontainer"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"SGN_SL_NO": {
+					"type": "integer"
+				},
+				"RECORD_IDENTIFIER": {
+					"type": "string"
+				},
+				"AB_UNIT": {
+					"type": "string"
+				},
+				"CODE_VERIFIER": {
+					"type": "string"
+				},
+				"PAYMENT_METHOD": {
+					"type": "string"
+				},
+				"DATA_LOAD_DATE": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

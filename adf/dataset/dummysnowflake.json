@@ -1,0 +1,16 @@
+{
+	"name": "dummysnowflake",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "firstSnowflakeLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "RAW",
+			"table": "dummy_table"
+		}
+	}
+}
