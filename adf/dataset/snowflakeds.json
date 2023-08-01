@@ -9,8 +9,8 @@
 		"type": "SnowflakeTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "raw",
-			"table": "dummy_table"
+			"schema": "RAW",
+			"table": "DUMMY_TABLE"
 		}
 	}
 }
