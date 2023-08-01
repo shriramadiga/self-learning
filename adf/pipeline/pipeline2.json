@@ -50,7 +50,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "snowflakeds",
+						"referenceName": "snowflakeActualdata",
 						"type": "DatasetReference"
 					}
 				]
