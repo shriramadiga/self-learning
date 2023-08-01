@@ -1,0 +1,63 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "runnining dq checks",
+				"type": "Script",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "firstSnowflakeLS",
+					"type": "LinkedServiceReference"
+				},
+				"typeProperties": {
+					"scripts": [
+						{
+							"type": "Query",
+							"text": "use database DEMO_DB;\nuse schema DEMO_DB.CONFIG;\n\ncall config.Rec_dq(1)"
+						}
+					],
+					"scriptBlockExecutionTimeout": "02:00:00"
+				}
+			},
+			{
+				"name": "set fail count",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "runnining dq checks",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "fail_count",
+					"value": {
+						"value": "@string(split(activity('runnining dq checks').output.resultSets[0].rows[0].Rec_dq,', ')[1])",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"fail_count": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
