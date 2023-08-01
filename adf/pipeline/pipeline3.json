@@ -28,7 +28,6 @@
 					},
 					"sink": {
 						"type": "SnowflakeSink",
-						"preCopyScript": "truncate table raw.dummy_table;",
 						"importSettings": {
 							"type": "SnowflakeImportCopyCommand"
 						}
@@ -43,7 +42,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "dummysnowflake",
+						"referenceName": "snowflakeds",
 						"type": "DatasetReference"
 					}
 				]
