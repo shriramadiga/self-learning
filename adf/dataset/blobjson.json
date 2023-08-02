@@ -1,0 +1,20 @@
+{
+	"name": "blobjson",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "blobCon",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "json_data.json",
+				"folderPath": "stage",
+				"container": "containerblob"
+			}
+		},
+		"schema": {}
+	}
+}
