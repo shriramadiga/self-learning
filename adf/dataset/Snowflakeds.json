@@ -1,0 +1,23 @@
+{
+	"name": "Snowflakeds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SnowdummyConn",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeTable",
+		"schema": [
+			{
+				"name": "RAW_DATA",
+				"type": "VARIANT",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "RAW",
+			"table": "DUMMY_TABLE"
+		}
+	}
+}
