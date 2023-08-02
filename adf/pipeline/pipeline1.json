@@ -5,7 +5,14 @@
 			{
 				"name": "runnining dq checks",
 				"type": "Script",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "set datset_id",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -15,14 +22,17 @@
 				},
 				"userProperties": [],
 				"linkedServiceName": {
-					"referenceName": "firstSnowflakeLS",
+					"referenceName": "SnowdummyConn",
 					"type": "LinkedServiceReference"
 				},
 				"typeProperties": {
 					"scripts": [
 						{
 							"type": "Query",
-							"text": "use database DEMO_DB;\nuse schema DEMO_DB.CONFIG;\n\ncall config.Rec_dq(1)"
+							"text": {
+								"value": "call @(activity('set dataset_id').output.value[0].dataset_id).Rec_dq(?)",
+								"type": "Expression"
+							}
 						}
 					],
 					"scriptBlockExecutionTimeout": "02:00:00"
@@ -51,10 +61,27 @@
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "set datset_id",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "dataset_id",
+					"value": "1"
+				}
 			}
 		],
 		"variables": {
 			"fail_count": {
+				"type": "String"
+			},
+			"dataset_id": {
 				"type": "String"
 			}
 		},
