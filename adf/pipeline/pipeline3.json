@@ -33,49 +33,7 @@
 							"type": "SnowflakeImportCopyCommand"
 						}
 					},
-					"enableStaging": true,
-					"stagingSettings": {
-						"linkedServiceName": {
-							"referenceName": "StageBlobCon",
-							"type": "LinkedServiceReference"
-						},
-						"path": ""
-					},
-					"translator": {
-						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"path": "$['SGN_SL_NO']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['RECORD_IDENTIFIER']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['AB_UNIT']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['CODE_VERIFIER']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['PAYMENT_METHOD']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['DATA_LOAD_DATE']"
-								}
-							}
-						]
-					}
+					"enableStaging": false
 				},
 				"inputs": [
 					{
